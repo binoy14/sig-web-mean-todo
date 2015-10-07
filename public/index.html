@@ -1,5 +1,18 @@
 <form action="/api/note" method="post">
   <input type="text" name="title">
   <textarea name="description"></textarea>
+  <!-- <input type="text" name="note_id" placeholder="Note id"> -->
   <button>Submit</button>
+</form>
+
+<form action="/api/note" method="put">
+  <input type="text" name="title">
+  <textarea name="description"></textarea>
+  <input type="text" name="note_id" placeholder="Note id">
+  <button>Edit</button>
+</form>
+
+<form action="/api/note" method="delete">
+  <input type="text" name="note_id" placeholder="Note id">
+  <button>Delete</button>
 </form>

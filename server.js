@@ -18,7 +18,7 @@ var apiRouter = require('./routes/api.js')(app, express);
 app.use('/api', apiRouter);
 
 app.use('*', function(req, res){
-  res.sendFile('404.html');
+  //res.sendFile('404.html');
 });
 
 app.listen(3000);

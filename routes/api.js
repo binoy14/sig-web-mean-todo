@@ -24,6 +24,29 @@ module.exports = function(app, express){
         if(err) throw err;
         res.send(resp);
       });
+    })
+    .put(function(req, res){
+      Note.findById(req.body.note_id, function(err, note){
+        if(err) throw err;
+
+        if(req.body.title) note.title = req.body.title;
+        if(req.body.description) note.description = req.body.description;
+        note.timestamp = moment();
+
+        note.save((err, resp) => {
+          if(err) throw err;
+          res.send(resp);
+        });
+      })
+    })
+    .delete(function(req, res){
+      console.log(req.body.note_id)
+      Note.remove({
+        _id : req.body.note_id
+      }, function(err, resp){
+        if(err) throw err;
+        res.send(resp);
+      });
     });
 
     return apiRouter;
